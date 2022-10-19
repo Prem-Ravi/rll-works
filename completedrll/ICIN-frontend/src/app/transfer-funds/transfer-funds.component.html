@@ -1,0 +1,67 @@
+<div class="jumbotron bg-grey text-dark p-10">
+
+  <form [formGroup]="transferFundForm">
+      <div class="form-group">
+          <label for="accountType"><b>Account Type</b></label>
+          <select class="form-control" id="accountType" name="accountType" formControlName="accountType" (change)="onChange($event)">
+      <option>Primary Account</option>
+    </select>
+      </div>
+      <div class="form-group">
+          <label for="accountBalance"><b>Balance</b></label>
+          <div class="z"> <input type="text" class="form-control" readonly id="accountBalance" placeholder formControlName="balance" value="{{balanceFund}}"></div>
+      </div>
+      <div class="form-group">
+          <label for="beneficiaryName"><b>Beneficiary Name</b></label>
+          <input type="text" class="form-control" id="beneficiaryName" fromControlName="beneficiaryName" required="required" formControlName="beneficiaryName" [ngClass]="{ 'is-invalid': submitted && f.beneficiaryName.errors }">
+          <div *ngIf="f.beneficiaryName.errors" class="invalid-feedback">
+              <div *ngIf="f.beneficiaryName.errors.required">
+                  <p class="alert alert-warning mt-2">Beneficiary Name is required</p>
+              </div>
+          </div>
+
+
+      </div>
+      <div class="form-group">
+          <label for="beneficiaryAccountNumber"><b>Beneficiary's Account Number</b></label>
+          <input type="text" class="form-control" id="beneficiaryAccountNumber" formControlName="beneficiaryAccountNumber" [ngClass]="{'is-invalid':submitted && f.beneficiaryAccountNumber.errors}">
+          <div *ngIf="f.beneficiaryAccountNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.beneficiaryAccountNumber.errors.required">
+                  <p class="alert alert-warning mt-2">Beneficiary's Account Number is required!!</p>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="beneficiaryIFSCCode"><b>Beneficiary IFSC Code</b></label>
+          <input type="text" class="form-control" id="beneficiaryIFSCCode" formControlName="beneficiaryIFSCCode" [ngClass]="{'is-invalid':submitted && f.beneficiaryIFSCCode.errors}">
+          <div *ngIf="f.beneficiaryIFSCCode.errors" class="invalid-feedback">
+              <div *ngIf="f.beneficiaryIFSCCode.errors.required">
+                  <p class="alert alert-warning  mt-2">Beneficiary's IFSC code is required!!</p>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="amountToBeTransfered"><b>Amount to be transferred</b></label>
+          <input type="number" class="form-control" id="amountToBeTransfered" formControlName="amountToBeTransfered" [ngClass]="{'is-invalid':submitted && f.amountToBeTransfered.errors}">
+          <div *ngIf="f.amountToBeTransfered.errors" class="invalid-feedback">
+              <div *ngIf="f.amountToBeTransfered.errors.required">
+                  <p class="alert alert-warning mt-2">Amount is required</p>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="transferType"><b>Transfer Type</b></label>
+          <select class="form-control" id="accountType" name="transferType" formControlName="transferType">
+        <option>IMPS</option>
+        <option>NEFT</option>
+        <option>RTGS</option>
+      </select>
+      </div>
+      <div class="form-group">
+          <label for="Description"><b>Optional Message</b></label>
+          <textarea class="form-control" id="description" rows="1" formControlName="optionalMessage"></textarea>
+      </div>
+
+      <p> <button type="button" class="btn btn-primary" id="tranferFundButton" (click)="handleTransferFund()"><b>Transfer Funds</b></button></p>
+  </form>
+</div>

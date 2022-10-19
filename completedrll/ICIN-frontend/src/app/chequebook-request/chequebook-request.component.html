@@ -1,0 +1,40 @@
+
+
+<div class="cheque-Request-Form">
+  <div class="jumbotron bg-light text-dark p-10">
+  
+      <form [formGroup]="chequeBookRequestForm"> 
+        <div>
+        <h1 style="color: rgb(58, 15, 15);"><strong>Cheque Book Request Form</strong></h1>
+  <style>h1{font-style:normal } h1{font-size:x-large;}</style><br>
+  </div>
+      <div class="form-group">
+        <label for="accountType">Account Type</label>
+        <select class="form-control" id="accountType" name="accountType" formControlName="accountType">
+          <option id="primary">Primary</option>
+          <option>Savings</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="chequetype">Cheque Book Type</label>
+        <select class="form-control" id="chequetype" name="chequetype" formControlName="chequetype">
+          <option id="individual">Individual</option>
+          <option>Corporate</option>
+        </select>
+      </div>
+  
+  
+  
+      <div class="form-group">
+        <label for="Description">Comments</label>
+        <textarea class="form-control" id="description" rows="2"></textarea>
+      </div>
+      <div class="text-center">
+      <button type="submit" class="text-center"  class="btn btn-primary" (click)="handleChequebookRequest()"><strong>Send Request</strong></button>
+      <style text-align: center;></style>
+    </div>
+    </form>
+  </div>
+  </div>
+  

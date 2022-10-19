@@ -1,0 +1,36 @@
+
+
+<h1 style="color: rgb(255, 255, 255);"><strong>Cheque Book Requests</strong></h1>
+<style>h1{font-style:oblique } h1{font-size:x-large;}</style><br>
+
+<body style="color: white;">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>User Name</th>
+			<th>Account Number</th>
+			<th>Mobile Number</th>
+			<th>Approval Status</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody> 
+		<tr *ngFor="let chequeBookRequest of chequeBookRequestList" >
+			<td>{{chequeBookRequest.id}}</td>
+			<td>{{chequeBookRequest["user"]["fullname"]}} {{chequeBookRequest["user"]["surname"]}}</td>
+			<td>{{chequeBookRequest["user"]["primaryAccount"]["accountNumber"]}}</td>
+			<td>{{chequeBookRequest["user"]["phonenumber"]}}</td>
+			<td> <p *ngIf="chequeBookRequest['accepted']" > Approved</p>
+				<p *ngIf="!chequeBookRequest['accepted']" > Pending</p>
+			</td>
+
+			<td [hidden]="chequeBookRequest.confirmed"><a *ngIf="!chequeBookRequest['accepted']" (click)="confirmChequeBookRequest(chequeBookRequest.id)" style="cursor: pointer;">Approve</a></td>
+			<!-- <td [hidden]="!user.enabled"><a (click)="disableUser(user.username)" style="cursor: pointer;">Disable</a></td> -->
+		</tr>
+	</tbody>
+</table>   
+</body>
+
+
+

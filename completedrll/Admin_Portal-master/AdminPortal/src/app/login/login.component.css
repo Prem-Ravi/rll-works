@@ -1,0 +1,14 @@
+.wrapper {
+margin: center;
+    text-decoration: black;
+    border-color: blueviolet;
+}
+
+.clean-font, .lead {
+    color: #000;
+    text-align: center;
+}
+
+.form-signin{
+    border-radius: 18px;
+}
